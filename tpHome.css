@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(timerImg/kitab\ oxuyan\ qoca\ adam.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    background-attachment: local;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+
+#navdiv {
+    display: flex;
+    list-style-type: none;
+    justify-content: left;
+    gap: 15px;
+}
+
+.link {
+    list-style-type: none;
+    text-decoration: none;
+    color: rgb(228, 239, 226);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#ulnav {
+    padding: 15px;
+    margin-top: -8px;
+}
+
+#h1{
+    color: rgb(228, 239, 226);
+}
+
+#tableTimerDay {
+    border: 2px solid rgb(2, 35, 12);
+    font-size: 16px;
+    background-color: rgb(228, 239, 226);
+    color: rgb(2, 35, 12);
+    margin-bottom: 10px;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+#tableTimerDay th, #tableTimerDay td {
+    border: 1px solid rgb(2, 35, 12);
+    padding: 5px;
+    text-align: center;
+}
+
+#tableTimerDay th {
+    background-color: rgb(2, 35, 12);
+    color: white;
+}
+
+#tableTimerDay td {
+    background-color: rgb(245, 252, 247);
+    color: rgb(2, 35, 12);
+}
+
+#tableTimerDay i.fa-solid.fa-x {
+    color: rgb(2, 35, 12);
+    font-size: 18px;
+}
+
+#tableTimer {
+    border: 2px solid rgb(2, 35, 12);
+    font-size: 20px;
+    background-color: rgb(228, 239, 226);
+    color: rgb(2, 35, 12);
+    text-align: center;
+}
+
+
+#labelText{
+    color: rgb(228, 239, 226);
+    font-size: 18px;
+    font-weight: bold;
+}
+#timeSelect{
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: rgb(228, 239, 226);
+    color: rgb(2, 35, 12);
+    width: 120px;
+    height: 32px;
+    font-weight: bold;
+}
+#tesdiqButton{
+    margin-top: 10px;
+    background-color: rgb(228, 239, 226);
+    color: rgb(2, 35, 12);
+    width: 120px;
+    height: 35px;
+    font-weight: bold;
+
+}
+
+#startButton {
+    margin-top: 20px;
+    background-color: rgb(228, 239, 226);
+    color: rgb(2, 35, 12);
+    width: 80px;
+    height: 35px;
+    font-weight: bold;
+
+}
+
+#Countdown {
+    display: inline-block;
+    font-size: 30px;
+    padding: 20px;
+    border: 2px solid rgb(2, 35, 12);
+    background-color: rgb(228, 239, 226);
+    width: 120px;
+    text-align: center;
+    font-weight: bold;
+
+}
+#passwordInput{
+    width: 250px;
+    height: 35px;
+}
+
+#stopButton {
+    background-color: rgb(2, 35, 12);
+    color: rgb(228, 239, 226);
+    width: 80px;
+    height: 35px;
+    font-weight: bold;
+
+}
+
+#motivationWords {
+    margin-top: 20px;
+}

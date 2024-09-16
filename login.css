@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(timerImg/kitab\ oxuyan\ qoca\ adam.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    background-attachment: local;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+#navdiv {
+    display: flex;
+    list-style-type: none;
+    justify-content: left;
+    gap: 15px;
+}
+
+.link {
+    list-style-type: none;
+    text-decoration: none;
+    color: rgb(228, 239, 226);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#ulnav {
+    padding: 15px;
+    margin-top: -8px;
+}
+
+.preDoc{
+    color: rgb(228, 239, 226);
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+.inputArea{
+    width: 250px;
+    height: 35px;
+}
+#submitButton{
+    width: 62.5px;
+    height: 35px;
+}
+#resetButton{
+    width: 62.5px;
+    height: 35px;
+}
+#pLoIn{
+    color: rgb(228, 239, 226);
+}
+.linkSiUp{
+    color: rgb(0, 102, 255);
+    text-decoration: none;
+}

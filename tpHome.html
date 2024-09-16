@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tpHome.css">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body style="text-align: center;">
+    <nav>
+        <ul id="ulnav">
+            <div id="navdiv">
+                <li id="home"><a class="link" href="tpHome.html">Əsas Səhifə</a></li>
+                <li id="login"><a class="link" href="login.html">Giriş</a></li>
+            </div>
+        </ul>
+    </nav>
+    <h1 id="h1">CHANGE YOUR HABITS IN 40 DAYS!</h1>
+    <center>
+        <table id="tableTimerDay">
+            <thead>
+                <tr>
+                    <th>Exit point</th>
+                    <th>Exit Time</th>
+                    <th>Return Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="exitIcon1"></td>
+                    <td id="exitTime1">--:--:--</td>
+                    <td id="returnTime1">--:--:--</td>
+                </tr>
+                <tr>
+                    <td id="exitIcon2"></td>
+                    <td id="exitTime2">--:--:--</td>
+                    <td id="returnTime2">--:--:--</td>
+                </tr>
+                <tr>
+                    <td id="exitIcon3"></td>
+                    <td id="exitTime3">--:--:--</td>
+                    <td id="returnTime3">--:--:--</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table id="tableTimer" cellpadding="25px" rules="all">
+            <thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </center> <br>
+
+    <!-- Vaxt seçim forması -->
+    <form id="timeForm">
+        <label for="timeSelect" id="labelText">Saatı seçin (maksimum 11 saat, 59 dəqiqə, 59 saniyə):</label> <br>
+        <input type="text" id="timeSelect" placeholder="HH:MM:SS" pattern="[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}" required>
+        <button type="button" onclick="setCustomTime()" id="tesdiqButton">Təsdiqlə</button>
+    </form>
+    <br>
+
+    <div id="Countdown">00:00:00</div><br>
+
+    <button id="startButton" type="button" onclick="startCountdown()">START</button>
+    <br> <br>
+    <!--<form action="">
+        Choose the focus time: <br>
+        <input type="time" id="timeSelect">
+    </form>-->
+    <form id="passwordForm" action="GET">
+        <input type="password" id="passwordInput" minlength="4" maxlength="4" pattern="[0-9]+"
+            title="The password must contain only numbers." required placeholder="Enter password to stop"><br><br>
+    </form>
+
+    <button id="stopButton" type="button" onclick="stopCountdown()">STOP</button>
+
+    <div id="motivationWords">"To bring about change, you must not be afraid to take the first step. We will fail when
+        we fail to try." — Rosa Parks</div>
+    <script src="tpHome.js"> </script>
+</body>
+
+</html>

@@ -1,12 +1,12 @@
 let countdownTimer;
-let timeLeft = 0; // Time in seconds
-let isCounting = false; // To check if countdown is active
-let stopCount = parseInt(localStorage.getItem('stopCount')) || 0; // Number of times stop button was used
-let userPassword = localStorage.getItem('userPassword') || '6666'; // Registration password
-let exitAttempts = 0; // Number of exit attempts (reset daily)
-let totalDuration = 0; // Total duration in seconds
-let isExiting = false; // Prevent multiple exit event triggers
-let lastExitRow = 1; // Track which row to update in tableTimerDay
+let timeLeft = 0; 
+let isCounting = false; 
+let stopCount = parseInt(localStorage.getItem('stopCount')) || 0;
+let userPassword = localStorage.getItem('userPassword') || '6666'; 
+let exitAttempts = 0;
+let totalDuration = 0; 
+let isExiting = false; 
+let lastExitRow = 1; 
 
 function loadCountdown() {
     const savedTime = localStorage.getItem('timeLeft');
@@ -14,35 +14,34 @@ function loadCountdown() {
         timeLeft = parseInt(savedTime, 10);
         updateDisplay();
     }
-    updateStartButtonState(); // Update the state of the start button
+    updateStartButtonState(); 
 }
 
 function updateStartButtonState() {
-    // Ensures the start button is always enabled
     document.getElementById("startButton").disabled = false;
 }
 
 function startCountdown() {
-    if (isCounting || timeLeft <= 0 || exitAttempts >= 3) return; // Do nothing if countdown is already running
-    isCounting = true; // Start countdown
+    if (isCounting || timeLeft <= 0 || exitAttempts >= 3) return; 
+    isCounting = true; 
 
     const currentTime = getCurrentTime();
     if (lastExitRow <= 3) {
-        document.getElementById(`returnTime${lastExitRow}`).textContent = currentTime; // Update return time in the table
+        document.getElementById(`returnTime${lastExitRow}`).textContent = currentTime; 
     }
 
     countdownTimer = setInterval(function () {
         if (timeLeft <= 0) {
             clearInterval(countdownTimer);
             alert("Təbriklər! Hədəfinizi tamamladınız.");
-            handleCompletion(true); // Complete session and handle completion
-            resetCountdown(); // Reset countdown
+            handleCompletion(true); 
+            resetCountdown(); 
             return;
         }
         timeLeft--;
         totalDuration++;
         updateDisplay();
-    }, 1000); // Update every second
+    }, 1000); 
 }
 
 function stopCountdown(skipPassword = false) {
@@ -50,14 +49,14 @@ function stopCountdown(skipPassword = false) {
         const enteredPassword = document.getElementById('passwordInput').value;
         if (enteredPassword !== userPassword) {
             alert('Səhv şifrə! Yenidən cəhd edin.');
-            return; // Exit function without stopping countdown
+            return; 
         }
         const confirmStop = confirm('Geri sayımı dayandırmaq istədiyinizdən əminsiniz?');
         if (!confirmStop) return;
     }
 
     clearInterval(countdownTimer);
-    isCounting = false; // Stop countdown
+    isCounting = false; 
 }
 
 function updateDisplay() {
@@ -71,8 +70,8 @@ function updateDisplay() {
 }
 
 function resetCountdown() {
-    timeLeft = 0; // Reset time
-    totalDuration = 0; // Reset total duration
+    timeLeft = 0; 
+    totalDuration = 0; 
     localStorage.removeItem('timeLeft');
 }
 
@@ -89,12 +88,12 @@ function setCustomTime() {
 
 function handleCompletion(isCompleted) {
     if (isCompleted) {
-        addCheckMarkToTableTimer(); // Add check icon to tableTimer
+        addCheckMarkToTableTimer(); 
     } else {
-        addXMarkToTableDay(); // Add cross icon to tableTimerDay
+        addXMarkToTableDay(); 
         if (document.querySelectorAll('#tableTimerDay i.fa-x').length >= 3) {
             alert("Siz bu gün 3 dəfə səhifədən çıxmısınız. Hədəfinizi tamamlamadınız!");
-            addXMarkToTableTimer(); // Add cross icon to tableTimer
+            addXMarkToTableTimer(); 
         }
     }
 }
@@ -111,7 +110,7 @@ function addXMarkToTableDay() {
         const exitIconCell = document.getElementById(`exitIcon${exitAttempts}`);
         if (exitIconCell) {
             exitIconCell.innerHTML = '<i class="fa-solid fa-x"></i>';
-            document.getElementById(`exitTime${exitAttempts}`).textContent = getCurrentTime(); // Update exit time in the table
+            document.getElementById(`exitTime${exitAttempts}`).textContent = getCurrentTime(); 
         }
     }
 }
@@ -129,19 +128,18 @@ function handleVisibilityChange() {
         isExiting = true;
 
         if (exitAttempts <= 3) {
-            addXMarkToTableDay(); // Add X mark for each exit attempt
+            addXMarkToTableDay(); 
             alert("Siz səhifəni tərk etdiniz. Geri qayıdıb geri sayımı davam etdirin!");
         }
     }
     if (document.visibilityState === 'visible') {
         if (exitAttempts <= 3) {
-            document.getElementById(`returnTime${exitAttempts}`).textContent = getCurrentTime(); // Record return time
+            document.getElementById(`returnTime${exitAttempts}`).textContent = getCurrentTime();
         }
-        isExiting = false; // Reset the exit flag when returning to the page
+        isExiting = false; 
     }
 }
 
-// Utility function to get current time as HH:MM:SS
 function getCurrentTime() {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
@@ -150,7 +148,6 @@ function getCurrentTime() {
     return `${hours}:${minutes}:${seconds}`;
 }
 
-// Load the countdown and event listeners on page load
 document.addEventListener('DOMContentLoaded', function () {
     loadCountdown();
     document.addEventListener('visibilitychange', handleVisibilityChange);
